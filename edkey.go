@@ -1,9 +1,7 @@
 package edkey
 
 import (
-	"fmt"
 	"math/rand"
-	"os"
 
 	"golang.org/x/crypto/ed25519"
 	"golang.org/x/crypto/ssh"
@@ -47,7 +45,7 @@ func MarshalED25519PrivateKey(key ed25519.PrivateKey) []byte {
 	// Add the pubkey to the optionally-encrypted block
 	pk, ok := key.Public().(ed25519.PublicKey)
 	if !ok {
-		fmt.Fprintln(os.Stderr, "ed25519.PublicKey type assertion failed on an ed25519 public key. This should never ever happen.")
+		//fmt.Fprintln(os.Stderr, "ed25519.PublicKey type assertion failed on an ed25519 public key. This should never ever happen.")
 		return nil
 	}
 	pubKey := []byte(pk)
