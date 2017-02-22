@@ -48,8 +48,7 @@ func MarshalED25519PrivateKey(key ed25519.PrivateKey) []byte {
 		//fmt.Fprintln(os.Stderr, "ed25519.PublicKey type assertion failed on an ed25519 public key. This should never ever happen.")
 		return nil
 	}
-	pubKey := []byte(pk)
-	pk1.Pub = pubKey
+	pk1.Pub = []byte(pk)
 
 	// Add our private key
 	pk1.Priv = []byte(key)
